@@ -1,0 +1,7 @@
+
+State Machine - |schematic|uart_receiver:inst7|state
+Name state.state_bit_1 state.state_bit_0 
+state.idle 0 0 
+state.start 0 1 
+state.data 1 0 
+state.stop 1 1 

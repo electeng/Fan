@@ -1,0 +1,452 @@
+Fitter report for cpdl_uart
+Mon Aug 22 23:42:42 2016
+Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Fitter Summary
+  3. Fitter Settings
+  4. Parallel Compilation
+  5. Pin-Out File
+  6. Fitter Resource Usage Summary
+  7. Input Pins
+  8. Output Pins
+  9. All Package Pins
+ 10. I/O Standard
+ 11. Dedicated Inputs I/O
+ 12. Output Pin Default Load For Reported TCO
+ 13. Fitter Resource Utilization by Entity
+ 14. Control Signals
+ 15. Global & Other Fast Signals
+ 16. Non-Global High Fan-Out Signals
+ 17. Other Routing Usage Summary
+ 18. LAB Macrocells
+ 19. Parallel Expander
+ 20. Shareable Expander
+ 21. Logic Cell Interconnection
+ 22. Fitter Device Options
+ 23. Fitter Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------+
+; Fitter Summary                                                         ;
++---------------------------+--------------------------------------------+
+; Fitter Status             ; Successful - Mon Aug 22 23:42:42 2016      ;
+; Quartus II 64-Bit Version ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
+; Revision Name             ; cpdl_uart                                  ;
+; Top-level Entity Name     ; schematic                                  ;
+; Family                    ; MAX7000AE                                  ;
+; Device                    ; EPM7064AELC44-10                           ;
+; Timing Models             ; Final                                      ;
+; Total macrocells          ; 31 / 64 ( 48 % )                           ;
+; Total pins                ; 19 / 36 ( 53 % )                           ;
++---------------------------+--------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Fitter Settings                                                                                               ;
++----------------------------------------------------------------------------+------------------+---------------+
+; Option                                                                     ; Setting          ; Default Value ;
++----------------------------------------------------------------------------+------------------+---------------+
+; Device                                                                     ; EPM7064AELC44-10 ;               ;
+; Use smart compilation                                                      ; Off              ; Off           ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On               ; On            ;
+; Enable compact report table                                                ; Off              ; Off           ;
+; Optimize Multi-Corner Timing                                               ; Off              ; Off           ;
+; Optimize Timing for ECOs                                                   ; Off              ; Off           ;
+; Regenerate full fit report during ECO compiles                             ; Off              ; Off           ;
+; Optimize IOC Register Placement for Timing                                 ; Normal           ; Normal        ;
+; Limit to One Fitting Attempt                                               ; Off              ; Off           ;
+; Fitter Initial Placement Seed                                              ; 1                ; 1             ;
+; Slow Slew Rate                                                             ; Off              ; Off           ;
+; Fitter Effort                                                              ; Auto Fit         ; Auto Fit      ;
+; Force Fitter to Avoid Periphery Placement Warnings                         ; Off              ; Off           ;
++----------------------------------------------------------------------------+------------------+---------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------+
+; Pin-Out File ;
++--------------+
+The pin-out file can be found in D:/Weeb209/electeng209/electeng209-master/VHDL/cpdl_uart.pin.
+
+
++-------------------------------------------------+
+; Fitter Resource Usage Summary                   ;
++------------------------------+------------------+
+; Resource                     ; Usage            ;
++------------------------------+------------------+
+; Logic cells                  ; 31 / 64 ( 48 % ) ;
+; Registers                    ; 29 / 64 ( 45 % ) ;
+; Number of pterms used        ; 110              ;
+; I/O pins                     ; 19 / 36 ( 53 % ) ;
+;     -- Clock pins            ; 1 / 2 ( 50 % )   ;
+;     -- Dedicated input pins  ; 0 / 2 ( 0 % )    ;
+;                              ;                  ;
+; Global signals               ; 1                ;
+; Shareable expanders          ; 2 / 64 ( 3 % )   ;
+; Parallel expanders           ; 2 / 60 ( 3 % )   ;
+; Cells using turbo bit        ; 31 / 64 ( 48 % ) ;
+; Maximum fan-out              ; 21               ;
+; Highest non-global fan-out   ; 21               ;
+; Total fan-out                ; 241              ;
+; Average fan-out              ; 4.63             ;
++------------------------------+------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                                                  ;
++-------+-------+----------+-----+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+; Name  ; Pin # ; I/O Bank ; LAB ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; I/O Standard ; Location assigned by ;
++-------+-------+----------+-----+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+; clk   ; 43    ; --       ; --  ; 17                    ; 0                  ; yes    ; no             ; no            ; 3.3-V LVTTL  ; User                 ;
+; reset ; 31    ; --       ; 3   ; 9                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; rx    ; 24    ; --       ; 3   ; 10                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; User                 ;
++-------+-------+----------+-----+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Output Pins                                                                                                                                                                                                ;
++--------+-------+----------+-----+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
+; Name   ; Pin # ; I/O Bank ; LAB ; Output Register ; Power Up High ; Slow Slew Rate ; Open Drain ; TRI Primitive ; I/O Standard ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
++--------+-------+----------+-----+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
+; dp     ; 14    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; sel[0] ; 16    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; sel[1] ; 17    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; sel[2] ; 18    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; sel[3] ; 19    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; ssd[0] ; 12    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; ssd[1] ; 11    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; ssd[2] ; 9     ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; ssd[3] ; 8     ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; ssd[4] ; 6     ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; ssd[5] ; 5     ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; ssd[6] ; 4     ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
++--------+-------+----------+-----+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; All Package Pins                                                                                      ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+; Location ; Pad Number ; I/O Bank ; Pin Name/Usage ; Dir.   ; I/O Standard ; Voltage ; User Assignment ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+; 1        ; 0          ; --       ; GND+           ;        ;              ;         ;                 ;
+; 2        ; 1          ; --       ; GND+           ;        ;              ;         ;                 ;
+; 3        ; 2          ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
+; 4        ; 3          ; --       ; ssd[6]         ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 5        ; 4          ; --       ; ssd[5]         ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 6        ; 5          ; --       ; ssd[4]         ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 7        ; 6          ; --       ; TDI            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 8        ; 7          ; --       ; ssd[3]         ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 9        ; 8          ; --       ; ssd[2]         ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 10       ; 9          ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; 11       ; 10         ; --       ; ssd[1]         ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 12       ; 11         ; --       ; ssd[0]         ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 13       ; 12         ; --       ; TMS            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 14       ; 13         ; --       ; dp             ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 15       ; 14         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; 16       ; 15         ; --       ; sel[0]         ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 17       ; 16         ; --       ; sel[1]         ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 18       ; 17         ; --       ; sel[2]         ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 19       ; 18         ; --       ; sel[3]         ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 20       ; 19         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 21       ; 20         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 22       ; 21         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; 23       ; 22         ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
+; 24       ; 23         ; --       ; rx             ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 25       ; 24         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 26       ; 25         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 27       ; 26         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 28       ; 27         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 29       ; 28         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 30       ; 29         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; 31       ; 30         ; --       ; reset          ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 32       ; 31         ; --       ; TCK            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 33       ; 32         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 34       ; 33         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 35       ; 34         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; 36       ; 35         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 37       ; 36         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 38       ; 37         ; --       ; TDO            ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 39       ; 38         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 40       ; 39         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 41       ; 40         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 42       ; 41         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; 43       ; 42         ; --       ; clk            ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 44       ; 43         ; --       ; GND+           ;        ;              ;         ;                 ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+Note: Pin directions (input, output or bidir) are based on device operating in user mode.
+
+
++--------------------------------------------------------------------------------------------------+
+; I/O Standard                                                                                     ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+; I/O Standard ; Input Vref ; Dedicated Input Pins ; Pins in I/O Bank1 ; Pins in I/O Bank2 ; Total ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+; 3.3-V LVTTL  ; -          ; 1                    ; 0                 ; 0                 ; 1     ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+
+
++--------------------------------------------------------------------+
+; Dedicated Inputs I/O                                               ;
++------+-------+-------+-------+--------------+------------+---------+
+; Name ; Pin # ; Type  ; VCCIO ; I/O Standard ; Input Vref ; Current ;
++------+-------+-------+-------+--------------+------------+---------+
+; clk  ; 43    ; Input ; --    ; 3.3-V LVTTL  ; -          ; 0 mA    ;
++------+-------+-------+-------+--------------+------------+---------+
+
+
++-----------------------------------------------+
+; Output Pin Default Load For Reported TCO      ;
++--------------+-------+------------------------+
+; I/O Standard ; Load  ; Termination Resistance ;
++--------------+-------+------------------------+
+; 3.3-V LVTTL  ; 10 pF ; Not Available          ;
+; 3.3-V LVCMOS ; 10 pF ; Not Available          ;
+; 3.3-V PCI    ; 10 pF ; 25 Ohm (Parallel)      ;
+; 2.5 V        ; 10 pF ; Not Available          ;
++--------------+-------+------------------------+
+Note: User assignments will override these defaults. The user specified values are listed in the Output Pins and Bidir Pins tables.
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                               ;
++--------------------------------+------------+------+-------------------------------------------------+--------------+
+; Compilation Hierarchy Node     ; Macrocells ; Pins ; Full Hierarchy Name                             ; Library Name ;
++--------------------------------+------------+------+-------------------------------------------------+--------------+
+; |schematic                     ; 31         ; 19   ; |schematic                                      ; work         ;
+;    |counter:inst2|             ; 5          ; 0    ; |schematic|counter:inst2                        ; work         ;
+;       |lpm_counter:temp_rtl_0| ; 5          ; 0    ; |schematic|counter:inst2|lpm_counter:temp_rtl_0 ; work         ;
+;    |counter:inst3|             ; 5          ; 0    ; |schematic|counter:inst3                        ; work         ;
+;       |lpm_counter:temp_rtl_0| ; 5          ; 0    ; |schematic|counter:inst3|lpm_counter:temp_rtl_0 ; work         ;
+;    |seven_seg:inst8|           ; 12         ; 0    ; |schematic|seven_seg:inst8                      ; work         ;
+;    |shift_reg:inst4|           ; 7          ; 0    ; |schematic|shift_reg:inst4                      ; work         ;
+;    |uart_receiver:inst7|       ; 2          ; 0    ; |schematic|uart_receiver:inst7                  ; work         ;
++--------------------------------+------------+------+-------------------------------------------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                     ;
++----------------------------------------------+----------+---------+--------------+--------+----------------------+------------------+
+; Name                                         ; Location ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ;
++----------------------------------------------+----------+---------+--------------+--------+----------------------+------------------+
+; clk                                          ; PIN_43   ; 17      ; Clock        ; yes    ; On                   ; --               ;
+; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; LC26     ; 19      ; Clock enable ; no     ; --                   ; --               ;
+; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; LC7      ; 19      ; Clock enable ; no     ; --                   ; --               ;
+; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; LC2      ; 18      ; Clock enable ; no     ; --                   ; --               ;
+; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; LC8      ; 18      ; Clock enable ; no     ; --                   ; --               ;
+; reset                                        ; PIN_31   ; 9       ; Async. clear ; no     ; --                   ; --               ;
+; uart_receiver:inst7|state.data~13            ; SEXP17   ; 5       ; Clock        ; no     ; --                   ; --               ;
+; uart_receiver:inst7|state.data~25            ; SEXP4    ; 7       ; Clock        ; no     ; --                   ; --               ;
+; uart_receiver:inst7|state.state_bit_0        ; LC22     ; 21      ; Clock enable ; no     ; --                   ; --               ;
+; uart_receiver:inst7|state.state_bit_1        ; LC28     ; 20      ; Clock enable ; no     ; --                   ; --               ;
++----------------------------------------------+----------+---------+--------------+--------+----------------------+------------------+
+
+
++---------------------------------------------------------------------+
+; Global & Other Fast Signals                                         ;
++------+----------+---------+----------------------+------------------+
+; Name ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ;
++------+----------+---------+----------------------+------------------+
+; clk  ; PIN_43   ; 17      ; On                   ; --               ;
++------+----------+---------+----------------------+------------------+
+
+
++-----------------------------------------------------------+
+; Non-Global High Fan-Out Signals                           ;
++-------------------------------------------------+---------+
+; Name                                            ; Fan-Out ;
++-------------------------------------------------+---------+
+; uart_receiver:inst7|state.state_bit_0           ; 21      ;
+; uart_receiver:inst7|state.state_bit_1           ; 20      ;
+; counter:inst3|lpm_counter:temp_rtl_0|dffs[1]    ; 19      ;
+; counter:inst3|lpm_counter:temp_rtl_0|dffs[0]    ; 19      ;
+; counter:inst3|lpm_counter:temp_rtl_0|dffs[3]    ; 18      ;
+; counter:inst3|lpm_counter:temp_rtl_0|dffs[2]    ; 18      ;
+; rx                                              ; 10      ;
+; reset                                           ; 9       ;
+; shift_reg:inst4|temp[4]                         ; 8       ;
+; shift_reg:inst4|temp[5]                         ; 8       ;
+; shift_reg:inst4|temp[6]                         ; 8       ;
+; shift_reg:inst4|temp[7]                         ; 8       ;
+; uart_receiver:inst7|state.data~25               ; 7       ;
+; counter:inst2|lpm_counter:temp_rtl_0|dffs[0]    ; 6       ;
+; shift_reg:inst4|temp[2]                         ; 5       ;
+; uart_receiver:inst7|state.data~13               ; 5       ;
+; counter:inst2|lpm_counter:temp_rtl_0|dffs[3]    ; 5       ;
+; counter:inst2|lpm_counter:temp_rtl_0|dffs[2]    ; 5       ;
+; counter:inst2|lpm_counter:temp_rtl_0|dffs[1]    ; 5       ;
+; shift_reg:inst4|temp[1]                         ; 4       ;
+; shift_reg:inst4|temp[3]                         ; 2       ;
+; counter:inst3|lpm_counter:temp_rtl_0|dffs[1]~30 ; 1       ;
+; counter:inst2|lpm_counter:temp_rtl_0|dffs[0]~29 ; 1       ;
+; seven_seg:inst8|current_sel[3]                  ; 1       ;
+; seven_seg:inst8|current_sel[2]                  ; 1       ;
+; seven_seg:inst8|current_sel[1]                  ; 1       ;
+; seven_seg:inst8|current_sel[0]                  ; 1       ;
+; seven_seg:inst8|current_ssd[6]                  ; 1       ;
+; seven_seg:inst8|current_ssd[3]                  ; 1       ;
+; seven_seg:inst8|current_ssd[5]                  ; 1       ;
+; seven_seg:inst8|current_ssd[0]                  ; 1       ;
+; seven_seg:inst8|current_ssd[4]                  ; 1       ;
+; seven_seg:inst8|current_ssd[2]                  ; 1       ;
+; seven_seg:inst8|current_ssd[1]                  ; 1       ;
+; seven_seg:inst8|current_dp                      ; 1       ;
++-------------------------------------------------+---------+
+
+
++-------------------------------------------------+
+; Other Routing Usage Summary                     ;
++-----------------------------+-------------------+
+; Other Routing Resource Type ; Usage             ;
++-----------------------------+-------------------+
+; Output enables              ; 0 / 6 ( 0 % )     ;
+; PIA buffers                 ; 27 / 144 ( 19 % ) ;
++-----------------------------+-------------------+
+
+
++----------------------------------------------------------------------+
+; LAB Macrocells                                                       ;
++----------------------------------------+-----------------------------+
+; Number of Macrocells  (Average = 7.75) ; Number of LABs  (Total = 2) ;
++----------------------------------------+-----------------------------+
+; 0                                      ; 2                           ;
+; 1                                      ; 0                           ;
+; 2                                      ; 0                           ;
+; 3                                      ; 0                           ;
+; 4                                      ; 0                           ;
+; 5                                      ; 0                           ;
+; 6                                      ; 0                           ;
+; 7                                      ; 0                           ;
+; 8                                      ; 0                           ;
+; 9                                      ; 0                           ;
+; 10                                     ; 0                           ;
+; 11                                     ; 0                           ;
+; 12                                     ; 0                           ;
+; 13                                     ; 0                           ;
+; 14                                     ; 0                           ;
+; 15                                     ; 1                           ;
+; 16                                     ; 1                           ;
++----------------------------------------+-----------------------------+
+
+
++---------------------------------------------------------+
+; Parallel Expander                                       ;
++--------------------------+------------------------------+
+; Parallel Expander Length ; Number of Parallel Expanders ;
++--------------------------+------------------------------+
+; 0                        ; 0                            ;
+; 1                        ; 2                            ;
++--------------------------+------------------------------+
+
+
++-------------------------------------------------------------------------------+
+; Shareable Expander                                                            ;
++-------------------------------------------------+-----------------------------+
+; Number of shareable expanders  (Average = 0.50) ; Number of LABs  (Total = 2) ;
++-------------------------------------------------+-----------------------------+
+; 0                                               ; 2                           ;
+; 1                                               ; 2                           ;
++-------------------------------------------------+-----------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Logic Cell Interconnection                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
++-----+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LAB ; Logic Cell ; Input                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ; Output                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
++-----+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+;  A  ; LC7        ; clk, counter:inst3|lpm_counter:temp_rtl_0|dffs[1]~30, counter:inst3|lpm_counter:temp_rtl_0|dffs[1], uart_receiver:inst7|state.state_bit_0, counter:inst3|lpm_counter:temp_rtl_0|dffs[0], uart_receiver:inst7|state.state_bit_1, counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], rx                                                                                                                                                                                         ; uart_receiver:inst7|state.state_bit_1, counter:inst2|lpm_counter:temp_rtl_0|dffs[0], counter:inst2|lpm_counter:temp_rtl_0|dffs[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[2], counter:inst2|lpm_counter:temp_rtl_0|dffs[3], uart_receiver:inst7|state.state_bit_0, counter:inst3|lpm_counter:temp_rtl_0|dffs[0], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[3], shift_reg:inst4|temp[7], shift_reg:inst4|temp[6], shift_reg:inst4|temp[5], shift_reg:inst4|temp[4], shift_reg:inst4|temp[3], shift_reg:inst4|temp[2], shift_reg:inst4|temp[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[0]~29, counter:inst3|lpm_counter:temp_rtl_0|dffs[1]~30                                                                       ;
+;  A  ; LC2        ; clk, uart_receiver:inst7|state.state_bit_0, counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[0], counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], uart_receiver:inst7|state.state_bit_1, rx                                                                                                                                                                                                                                          ; uart_receiver:inst7|state.state_bit_1, counter:inst2|lpm_counter:temp_rtl_0|dffs[0], counter:inst2|lpm_counter:temp_rtl_0|dffs[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[2], counter:inst2|lpm_counter:temp_rtl_0|dffs[3], uart_receiver:inst7|state.state_bit_0, counter:inst3|lpm_counter:temp_rtl_0|dffs[0], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[3], shift_reg:inst4|temp[7], shift_reg:inst4|temp[6], shift_reg:inst4|temp[5], shift_reg:inst4|temp[4], shift_reg:inst4|temp[3], shift_reg:inst4|temp[2], shift_reg:inst4|temp[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[0]~29                                                                                                                        ;
+;  A  ; LC8        ; clk, uart_receiver:inst7|state.state_bit_1, counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[0], counter:inst3|lpm_counter:temp_rtl_0|dffs[3], rx, uart_receiver:inst7|state.state_bit_0                                                                                                                                                                                                                                          ; uart_receiver:inst7|state.state_bit_1, counter:inst2|lpm_counter:temp_rtl_0|dffs[0], counter:inst2|lpm_counter:temp_rtl_0|dffs[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[2], counter:inst2|lpm_counter:temp_rtl_0|dffs[3], uart_receiver:inst7|state.state_bit_0, counter:inst3|lpm_counter:temp_rtl_0|dffs[0], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[3], shift_reg:inst4|temp[7], shift_reg:inst4|temp[6], shift_reg:inst4|temp[5], shift_reg:inst4|temp[4], shift_reg:inst4|temp[3], shift_reg:inst4|temp[2], shift_reg:inst4|temp[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[0]~29                                                                                                                        ;
+;  A  ; LC12       ; clk, shift_reg:inst4|temp[7], reset, counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[0], uart_receiver:inst7|state.state_bit_0, uart_receiver:inst7|state.state_bit_1                                                                                                                                                                                                              ; shift_reg:inst4|temp[5], seven_seg:inst8|current_ssd[1], seven_seg:inst8|current_ssd[2], seven_seg:inst8|current_ssd[4], seven_seg:inst8|current_ssd[0], seven_seg:inst8|current_ssd[5], seven_seg:inst8|current_ssd[3], seven_seg:inst8|current_ssd[6]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
+;  A  ; LC13       ; clk, shift_reg:inst4|temp[6], reset, counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[0], uart_receiver:inst7|state.state_bit_0, uart_receiver:inst7|state.state_bit_1                                                                                                                                                                                                              ; shift_reg:inst4|temp[4], seven_seg:inst8|current_ssd[1], seven_seg:inst8|current_ssd[2], seven_seg:inst8|current_ssd[4], seven_seg:inst8|current_ssd[0], seven_seg:inst8|current_ssd[5], seven_seg:inst8|current_ssd[3], seven_seg:inst8|current_ssd[6]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
+;  A  ; LC15       ; clk, shift_reg:inst4|temp[5], reset, counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[0], uart_receiver:inst7|state.state_bit_0, uart_receiver:inst7|state.state_bit_1                                                                                                                                                                                                              ; shift_reg:inst4|temp[3], seven_seg:inst8|current_ssd[1], seven_seg:inst8|current_ssd[2], seven_seg:inst8|current_ssd[4], seven_seg:inst8|current_ssd[0], seven_seg:inst8|current_ssd[5], seven_seg:inst8|current_ssd[3], seven_seg:inst8|current_ssd[6]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
+;  A  ; LC9        ; clk, shift_reg:inst4|temp[4], reset, counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[0], uart_receiver:inst7|state.state_bit_0, uart_receiver:inst7|state.state_bit_1                                                                                                                                                                                                              ; seven_seg:inst8|current_dp, shift_reg:inst4|temp[2]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ;
+;  A  ; LC3        ; shift_reg:inst4|temp[4], shift_reg:inst4|temp[5], shift_reg:inst4|temp[7], shift_reg:inst4|temp[6], uart_receiver:inst7|state.data~25                                                                                                                                                                                                                                                                                                                                                                                  ; ssd[1]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  A  ; LC4        ; shift_reg:inst4|temp[4], shift_reg:inst4|temp[6], shift_reg:inst4|temp[5], shift_reg:inst4|temp[7], uart_receiver:inst7|state.data~25                                                                                                                                                                                                                                                                                                                                                                                  ; ssd[2]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  A  ; LC11       ; shift_reg:inst4|temp[4], shift_reg:inst4|temp[6], shift_reg:inst4|temp[5], shift_reg:inst4|temp[7], uart_receiver:inst7|state.data~25                                                                                                                                                                                                                                                                                                                                                                                  ; ssd[4]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  A  ; LC1        ; shift_reg:inst4|temp[7], shift_reg:inst4|temp[5], shift_reg:inst4|temp[4], shift_reg:inst4|temp[6], uart_receiver:inst7|state.data~25                                                                                                                                                                                                                                                                                                                                                                                  ; ssd[0]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  A  ; LC14       ; shift_reg:inst4|temp[4], shift_reg:inst4|temp[6], shift_reg:inst4|temp[5], shift_reg:inst4|temp[7], uart_receiver:inst7|state.data~25                                                                                                                                                                                                                                                                                                                                                                                  ; ssd[5]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  A  ; LC5        ; shift_reg:inst4|temp[4], shift_reg:inst4|temp[6], shift_reg:inst4|temp[7], shift_reg:inst4|temp[5], uart_receiver:inst7|state.data~25                                                                                                                                                                                                                                                                                                                                                                                  ; ssd[3]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  A  ; LC16       ; shift_reg:inst4|temp[6], shift_reg:inst4|temp[4], shift_reg:inst4|temp[5], shift_reg:inst4|temp[7], uart_receiver:inst7|state.data~25                                                                                                                                                                                                                                                                                                                                                                                  ; ssd[6]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  A  ; LC6        ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1], uart_receiver:inst7|state.state_bit_0, counter:inst3|lpm_counter:temp_rtl_0|dffs[0]                                                                                                                                                                                                                                                                                                                                                                                      ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
+;  B  ; LC28       ; clk, uart_receiver:inst7|state.state_bit_0, counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[0], uart_receiver:inst7|state.state_bit_1, reset                                                                                                                                                                                                                                       ; uart_receiver:inst7|state.state_bit_1, counter:inst2|lpm_counter:temp_rtl_0|dffs[0], counter:inst2|lpm_counter:temp_rtl_0|dffs[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[2], counter:inst2|lpm_counter:temp_rtl_0|dffs[3], uart_receiver:inst7|state.state_bit_0, counter:inst3|lpm_counter:temp_rtl_0|dffs[0], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[3], shift_reg:inst4|temp[7], shift_reg:inst4|temp[6], shift_reg:inst4|temp[5], shift_reg:inst4|temp[4], shift_reg:inst4|temp[3], uart_receiver:inst7|state.data~13, shift_reg:inst4|temp[2], shift_reg:inst4|temp[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[0]~29, uart_receiver:inst7|state.data~25                                                  ;
+;  B  ; LC19       ; clk, counter:inst2|lpm_counter:temp_rtl_0|dffs[0]~29, counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], uart_receiver:inst7|state.state_bit_1, counter:inst3|lpm_counter:temp_rtl_0|dffs[0], counter:inst2|lpm_counter:temp_rtl_0|dffs[0], uart_receiver:inst7|state.state_bit_0, rx, counter:inst2|lpm_counter:temp_rtl_0|dffs[3], counter:inst2|lpm_counter:temp_rtl_0|dffs[2], counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0], counter:inst2|lpm_counter:temp_rtl_0|dffs[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[2], counter:inst2|lpm_counter:temp_rtl_0|dffs[3], uart_receiver:inst7|state.state_bit_0, counter:inst2|lpm_counter:temp_rtl_0|dffs[0]~29                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
+;  B  ; LC31       ; clk, counter:inst2|lpm_counter:temp_rtl_0|dffs[0], uart_receiver:inst7|state.state_bit_0, counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[0], uart_receiver:inst7|state.state_bit_1, counter:inst2|lpm_counter:temp_rtl_0|dffs[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[3], counter:inst2|lpm_counter:temp_rtl_0|dffs[2], rx                                                  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0], counter:inst2|lpm_counter:temp_rtl_0|dffs[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[2], counter:inst2|lpm_counter:temp_rtl_0|dffs[3], uart_receiver:inst7|state.state_bit_0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
+;  B  ; LC32       ; clk, counter:inst2|lpm_counter:temp_rtl_0|dffs[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[0], counter:inst3|lpm_counter:temp_rtl_0|dffs[3], uart_receiver:inst7|state.state_bit_0, uart_receiver:inst7|state.state_bit_1, counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[0], counter:inst2|lpm_counter:temp_rtl_0|dffs[2], counter:inst2|lpm_counter:temp_rtl_0|dffs[3], rx                                                  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0], counter:inst2|lpm_counter:temp_rtl_0|dffs[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[2], counter:inst2|lpm_counter:temp_rtl_0|dffs[3], uart_receiver:inst7|state.state_bit_0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
+;  B  ; LC17       ; clk, rx, uart_receiver:inst7|state.state_bit_1, uart_receiver:inst7|state.state_bit_0, counter:inst2|lpm_counter:temp_rtl_0|dffs[3], counter:inst2|lpm_counter:temp_rtl_0|dffs[2], counter:inst2|lpm_counter:temp_rtl_0|dffs[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[0], counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[0]                                                  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0], counter:inst2|lpm_counter:temp_rtl_0|dffs[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[2], counter:inst2|lpm_counter:temp_rtl_0|dffs[3], uart_receiver:inst7|state.state_bit_0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
+;  B  ; LC22       ; clk, rx, uart_receiver:inst7|state.state_bit_1, uart_receiver:inst7|state.state_bit_0, counter:inst2|lpm_counter:temp_rtl_0|dffs[3], counter:inst2|lpm_counter:temp_rtl_0|dffs[2], counter:inst2|lpm_counter:temp_rtl_0|dffs[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[0], counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[0], reset                                           ; uart_receiver:inst7|state.state_bit_1, counter:inst2|lpm_counter:temp_rtl_0|dffs[0], counter:inst2|lpm_counter:temp_rtl_0|dffs[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[2], counter:inst2|lpm_counter:temp_rtl_0|dffs[3], uart_receiver:inst7|state.state_bit_0, counter:inst3|lpm_counter:temp_rtl_0|dffs[0], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[3], shift_reg:inst4|temp[7], shift_reg:inst4|temp[6], shift_reg:inst4|temp[5], shift_reg:inst4|temp[4], shift_reg:inst4|temp[3], uart_receiver:inst7|state.data~13, shift_reg:inst4|temp[2], shift_reg:inst4|temp[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[0]~29, counter:inst3|lpm_counter:temp_rtl_0|dffs[1]~30, uart_receiver:inst7|state.data~25 ;
+;  B  ; LC26       ; clk, rx, uart_receiver:inst7|state.state_bit_1, uart_receiver:inst7|state.state_bit_0, counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[0]                                                                                                                                                                                                                                          ; uart_receiver:inst7|state.state_bit_1, counter:inst2|lpm_counter:temp_rtl_0|dffs[0], counter:inst2|lpm_counter:temp_rtl_0|dffs[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[2], counter:inst2|lpm_counter:temp_rtl_0|dffs[3], uart_receiver:inst7|state.state_bit_0, counter:inst3|lpm_counter:temp_rtl_0|dffs[0], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[3], shift_reg:inst4|temp[7], shift_reg:inst4|temp[6], shift_reg:inst4|temp[5], shift_reg:inst4|temp[4], shift_reg:inst4|temp[3], shift_reg:inst4|temp[2], shift_reg:inst4|temp[1], counter:inst2|lpm_counter:temp_rtl_0|dffs[0]~29, counter:inst3|lpm_counter:temp_rtl_0|dffs[1]~30                                                                       ;
+;  B  ; LC23       ; clk, rx, reset, counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[0], uart_receiver:inst7|state.state_bit_0, uart_receiver:inst7|state.state_bit_1                                                                                                                                                                                                                                   ; shift_reg:inst4|temp[6], seven_seg:inst8|current_ssd[1], seven_seg:inst8|current_ssd[2], seven_seg:inst8|current_ssd[4], seven_seg:inst8|current_ssd[0], seven_seg:inst8|current_ssd[5], seven_seg:inst8|current_ssd[3], seven_seg:inst8|current_ssd[6]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
+;  B  ; LC30       ; shift_reg:inst4|temp[3], uart_receiver:inst7|state.data~13                                                                                                                                                                                                                                                                                                                                                                                                                                                             ; dp                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ;
+;  B  ; LC27       ; clk, shift_reg:inst4|temp[3], reset, counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[0], uart_receiver:inst7|state.state_bit_0, uart_receiver:inst7|state.state_bit_1                                                                                                                                                                                                              ; shift_reg:inst4|temp[1], seven_seg:inst8|current_sel[0], seven_seg:inst8|current_sel[1], seven_seg:inst8|current_sel[2], seven_seg:inst8|current_sel[3]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
+;  B  ; LC29       ; clk, shift_reg:inst4|temp[2], reset, counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], counter:inst3|lpm_counter:temp_rtl_0|dffs[0], uart_receiver:inst7|state.state_bit_0, uart_receiver:inst7|state.state_bit_1                                                                                                                                                                                                              ; seven_seg:inst8|current_sel[0], seven_seg:inst8|current_sel[1], seven_seg:inst8|current_sel[2], seven_seg:inst8|current_sel[3]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
+;  B  ; LC25       ; shift_reg:inst4|temp[2], shift_reg:inst4|temp[1], uart_receiver:inst7|state.data~13                                                                                                                                                                                                                                                                                                                                                                                                                                    ; sel[0]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  B  ; LC24       ; shift_reg:inst4|temp[2], shift_reg:inst4|temp[1], uart_receiver:inst7|state.data~13                                                                                                                                                                                                                                                                                                                                                                                                                                    ; sel[1]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  B  ; LC21       ; shift_reg:inst4|temp[2], shift_reg:inst4|temp[1], uart_receiver:inst7|state.data~13                                                                                                                                                                                                                                                                                                                                                                                                                                    ; sel[2]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  B  ; LC20       ; shift_reg:inst4|temp[2], shift_reg:inst4|temp[1], uart_receiver:inst7|state.data~13                                                                                                                                                                                                                                                                                                                                                                                                                                    ; sel[3]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  B  ; LC18       ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3], counter:inst3|lpm_counter:temp_rtl_0|dffs[2], counter:inst3|lpm_counter:temp_rtl_0|dffs[1], uart_receiver:inst7|state.state_bit_1, counter:inst3|lpm_counter:temp_rtl_0|dffs[0], counter:inst2|lpm_counter:temp_rtl_0|dffs[0], uart_receiver:inst7|state.state_bit_0                                                                                                                                                                                                     ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
++-----+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Fitter Device Options                                                   ;
++----------------------------------------------+--------------------------+
+; Option                                       ; Setting                  ;
++----------------------------------------------+--------------------------+
+; Enable user-supplied start-up clock (CLKUSR) ; Off                      ;
+; Enable device-wide reset (DEV_CLRn)          ; Off                      ;
+; Enable device-wide output enable (DEV_OE)    ; Off                      ;
+; Enable INIT_DONE output                      ; Off                      ;
+; Configuration scheme                         ; Passive Serial           ;
+; Reserve all unused pins                      ; As output driving ground ;
+; Security bit                                 ; Off                      ;
+; Base pin-out file on sameframe device        ; Off                      ;
++----------------------------------------------+--------------------------+
+
+
++-----------------+
+; Fitter Messages ;
++-----------------+
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (119006): Selected device EPM7064AELC44-10 for design "cpdl_uart"
+Info: Quartus II 64-Bit Fitter was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 578 megabytes
+    Info: Processing ended: Mon Aug 22 23:42:42 2016
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

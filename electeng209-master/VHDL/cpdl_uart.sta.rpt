@@ -1,0 +1,751 @@
+TimeQuest Timing Analyzer report for cpdl_uart
+Mon Aug 22 23:42:44 2016
+Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clk'
+ 12. Setup: 'uart_receiver:inst7|state.state_bit_0'
+ 13. Hold: 'clk'
+ 14. Hold: 'uart_receiver:inst7|state.state_bit_0'
+ 15. Minimum Pulse Width: 'clk'
+ 16. Minimum Pulse Width: 'uart_receiver:inst7|state.state_bit_0'
+ 17. Setup Times
+ 18. Hold Times
+ 19. Clock to Output Times
+ 20. Minimum Clock to Output Times
+ 21. Setup Transfers
+ 22. Hold Transfers
+ 23. Report TCCS
+ 24. Report RSKM
+ 25. Unconstrained Paths
+ 26. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
+; Revision Name      ; cpdl_uart                                          ;
+; Device Family      ; MAX7000AE                                          ;
+; Device Name        ; EPM7064AELC44-10                                   ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Slow Model                                         ;
+; Rise/Fall Delays   ; Unavailable                                        ;
++--------------------+----------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                                       ;
++---------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------------------+
+; Clock Name                            ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                                   ;
++---------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------------------+
+; clk                                   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                                   ;
+; uart_receiver:inst7|state.state_bit_0 ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { uart_receiver:inst7|state.state_bit_0 } ;
++---------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------------------+
+
+
++-------------------------------------------------+
+; Fmax Summary                                    ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 90.91 MHz ; 90.91 MHz       ; clk        ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-----------------------------------------------------------------+
+; Setup Summary                                                   ;
++---------------------------------------+---------+---------------+
+; Clock                                 ; Slack   ; End Point TNS ;
++---------------------------------------+---------+---------------+
+; clk                                   ; -10.000 ; -153.900      ;
+; uart_receiver:inst7|state.state_bit_0 ; -3.800  ; -45.600       ;
++---------------------------------------+---------+---------------+
+
+
++----------------------------------------------------------------+
+; Hold Summary                                                   ;
++---------------------------------------+--------+---------------+
+; Clock                                 ; Slack  ; End Point TNS ;
++---------------------------------------+--------+---------------+
+; clk                                   ; -1.300 ; -9.100        ;
+; uart_receiver:inst7|state.state_bit_0 ; 0.600  ; 0.000         ;
++---------------------------------------+--------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++----------------------------------------------------------------+
+; Minimum Pulse Width Summary                                    ;
++---------------------------------------+--------+---------------+
+; Clock                                 ; Slack  ; End Point TNS ;
++---------------------------------------+--------+---------------+
+; clk                                   ; -3.500 ; -119.000      ;
+; uart_receiver:inst7|state.state_bit_0 ; -3.500 ; -84.000       ;
++---------------------------------------+--------+---------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                                                                ;
++---------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                                    ; To Node                                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -10.000 ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.100      ;
+; -10.000 ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.100      ;
+; -10.000 ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.100      ;
+; -10.000 ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.100      ;
+; -10.000 ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.100      ;
+; -10.000 ; uart_receiver:inst7|state.state_bit_1        ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.100      ;
+; -10.000 ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.100      ;
+; -9.900  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.000      ;
+; -9.100  ; uart_receiver:inst7|state.state_bit_1        ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; uart_receiver:inst7|state.state_bit_1        ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; uart_receiver:inst7|state.state_bit_1        ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; uart_receiver:inst7|state.state_bit_1        ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; uart_receiver:inst7|state.state_bit_1        ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; uart_receiver:inst7|state.state_bit_1        ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; uart_receiver:inst7|state.state_bit_1        ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; uart_receiver:inst7|state.state_bit_1        ; uart_receiver:inst7|state.state_bit_0        ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; uart_receiver:inst7|state.state_bit_0        ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; uart_receiver:inst7|state.state_bit_0        ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; uart_receiver:inst7|state.state_bit_0        ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; uart_receiver:inst7|state.state_bit_0        ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; uart_receiver:inst7|state.state_bit_1        ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; uart_receiver:inst7|state.state_bit_1        ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; uart_receiver:inst7|state.state_bit_1        ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; uart_receiver:inst7|state.state_bit_1        ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; uart_receiver:inst7|state.state_bit_1        ; uart_receiver:inst7|state.state_bit_1        ; clk          ; clk         ; 1.000        ; 0.000      ; 7.200      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; uart_receiver:inst7|state.state_bit_0        ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; uart_receiver:inst7|state.state_bit_0        ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; uart_receiver:inst7|state.state_bit_0        ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; uart_receiver:inst7|state.state_bit_0        ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; shift_reg:inst4|temp[7]                      ; shift_reg:inst4|temp[6]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; shift_reg:inst4|temp[6]                      ; shift_reg:inst4|temp[5]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; shift_reg:inst4|temp[5]                      ; shift_reg:inst4|temp[4]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; shift_reg:inst4|temp[4]                      ; shift_reg:inst4|temp[3]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; shift_reg:inst4|temp[3]                      ; shift_reg:inst4|temp[2]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; shift_reg:inst4|temp[2]                      ; shift_reg:inst4|temp[1]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; shift_reg:inst4|temp[7]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; shift_reg:inst4|temp[7]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; shift_reg:inst4|temp[7]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; shift_reg:inst4|temp[7]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; uart_receiver:inst7|state.state_bit_1        ; shift_reg:inst4|temp[7]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; shift_reg:inst4|temp[6]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; shift_reg:inst4|temp[6]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; shift_reg:inst4|temp[6]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; shift_reg:inst4|temp[6]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; uart_receiver:inst7|state.state_bit_1        ; shift_reg:inst4|temp[6]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; shift_reg:inst4|temp[5]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; shift_reg:inst4|temp[5]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; shift_reg:inst4|temp[5]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; shift_reg:inst4|temp[5]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; uart_receiver:inst7|state.state_bit_1        ; shift_reg:inst4|temp[5]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; shift_reg:inst4|temp[4]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; shift_reg:inst4|temp[4]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; shift_reg:inst4|temp[4]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; shift_reg:inst4|temp[4]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; uart_receiver:inst7|state.state_bit_1        ; shift_reg:inst4|temp[4]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; shift_reg:inst4|temp[3]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; shift_reg:inst4|temp[3]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; shift_reg:inst4|temp[3]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
+; -7.100  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; shift_reg:inst4|temp[3]                      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.200      ;
++---------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'uart_receiver:inst7|state.state_bit_0'                                                                                                                    ;
++--------+-------------------------+--------------------------------+--------------+---------------------------------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node                        ; Launch Clock ; Latch Clock                           ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+--------------------------------+--------------+---------------------------------------+--------------+------------+------------+
+; -3.800 ; shift_reg:inst4|temp[5] ; seven_seg:inst8|current_ssd[1] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[6] ; seven_seg:inst8|current_ssd[1] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[4] ; seven_seg:inst8|current_ssd[1] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[7] ; seven_seg:inst8|current_ssd[1] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[4] ; seven_seg:inst8|current_ssd[2] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[6] ; seven_seg:inst8|current_ssd[2] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[5] ; seven_seg:inst8|current_ssd[2] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[7] ; seven_seg:inst8|current_ssd[2] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[4] ; seven_seg:inst8|current_ssd[4] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[6] ; seven_seg:inst8|current_ssd[4] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[5] ; seven_seg:inst8|current_ssd[4] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[7] ; seven_seg:inst8|current_ssd[4] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[5] ; seven_seg:inst8|current_ssd[0] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[4] ; seven_seg:inst8|current_ssd[0] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[6] ; seven_seg:inst8|current_ssd[0] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[7] ; seven_seg:inst8|current_ssd[0] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[6] ; seven_seg:inst8|current_ssd[5] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[5] ; seven_seg:inst8|current_ssd[5] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[7] ; seven_seg:inst8|current_ssd[5] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[4] ; seven_seg:inst8|current_ssd[5] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[6] ; seven_seg:inst8|current_ssd[3] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[7] ; seven_seg:inst8|current_ssd[3] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[5] ; seven_seg:inst8|current_ssd[3] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[4] ; seven_seg:inst8|current_ssd[3] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[6] ; seven_seg:inst8|current_ssd[6] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[4] ; seven_seg:inst8|current_ssd[6] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[5] ; seven_seg:inst8|current_ssd[6] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[7] ; seven_seg:inst8|current_ssd[6] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[3] ; seven_seg:inst8|current_dp     ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[2] ; seven_seg:inst8|current_sel[0] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[1] ; seven_seg:inst8|current_sel[0] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[2] ; seven_seg:inst8|current_sel[1] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[1] ; seven_seg:inst8|current_sel[1] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[2] ; seven_seg:inst8|current_sel[2] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[1] ; seven_seg:inst8|current_sel[2] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[2] ; seven_seg:inst8|current_sel[3] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
+; -3.800 ; shift_reg:inst4|temp[1] ; seven_seg:inst8|current_sel[3] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 1.000        ; 5.200      ; 7.100      ;
++--------+-------------------------+--------------------------------+--------------+---------------------------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                                                                                         ;
++--------+----------------------------------------------+----------------------------------------------+---------------------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                    ; To Node                                      ; Launch Clock                          ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------------------+----------------------------------------------+---------------------------------------+-------------+--------------+------------+------------+
+; -1.300 ; uart_receiver:inst7|state.state_bit_0        ; shift_reg:inst4|temp[7]                      ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 5.200      ;
+; -1.300 ; uart_receiver:inst7|state.state_bit_0        ; shift_reg:inst4|temp[6]                      ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 5.200      ;
+; -1.300 ; uart_receiver:inst7|state.state_bit_0        ; shift_reg:inst4|temp[5]                      ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 5.200      ;
+; -1.300 ; uart_receiver:inst7|state.state_bit_0        ; shift_reg:inst4|temp[4]                      ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 5.200      ;
+; -1.300 ; uart_receiver:inst7|state.state_bit_0        ; shift_reg:inst4|temp[3]                      ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 5.200      ;
+; -1.300 ; uart_receiver:inst7|state.state_bit_0        ; shift_reg:inst4|temp[2]                      ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 5.200      ;
+; -1.300 ; uart_receiver:inst7|state.state_bit_0        ; shift_reg:inst4|temp[1]                      ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 5.200      ;
+; -0.800 ; uart_receiver:inst7|state.state_bit_0        ; shift_reg:inst4|temp[7]                      ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 5.200      ;
+; -0.800 ; uart_receiver:inst7|state.state_bit_0        ; shift_reg:inst4|temp[6]                      ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 5.200      ;
+; -0.800 ; uart_receiver:inst7|state.state_bit_0        ; shift_reg:inst4|temp[5]                      ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 5.200      ;
+; -0.800 ; uart_receiver:inst7|state.state_bit_0        ; shift_reg:inst4|temp[4]                      ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 5.200      ;
+; -0.800 ; uart_receiver:inst7|state.state_bit_0        ; shift_reg:inst4|temp[3]                      ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 5.200      ;
+; -0.800 ; uart_receiver:inst7|state.state_bit_0        ; shift_reg:inst4|temp[2]                      ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 5.200      ;
+; -0.800 ; uart_receiver:inst7|state.state_bit_0        ; shift_reg:inst4|temp[1]                      ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 5.200      ;
+; 0.600  ; uart_receiver:inst7|state.state_bit_0        ; uart_receiver:inst7|state.state_bit_0        ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 7.100      ;
+; 0.700  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 7.200      ;
+; 0.700  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 7.200      ;
+; 0.700  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 7.200      ;
+; 0.700  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 7.200      ;
+; 0.700  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 7.200      ;
+; 0.700  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 7.200      ;
+; 0.700  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 7.200      ;
+; 0.700  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 7.200      ;
+; 0.700  ; uart_receiver:inst7|state.state_bit_0        ; uart_receiver:inst7|state.state_bit_1        ; uart_receiver:inst7|state.state_bit_0 ; clk         ; 0.000        ; 3.600      ; 7.200      ;
+; 1.100  ; uart_receiver:inst7|state.state_bit_0        ; uart_receiver:inst7|state.state_bit_0        ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 7.100      ;
+; 1.200  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 7.200      ;
+; 1.200  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 7.200      ;
+; 1.200  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 7.200      ;
+; 1.200  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 7.200      ;
+; 1.200  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 7.200      ;
+; 1.200  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 7.200      ;
+; 1.200  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 7.200      ;
+; 1.200  ; uart_receiver:inst7|state.state_bit_0        ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 7.200      ;
+; 1.200  ; uart_receiver:inst7|state.state_bit_0        ; uart_receiver:inst7|state.state_bit_1        ; uart_receiver:inst7|state.state_bit_0 ; clk         ; -0.500       ; 3.600      ; 7.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; shift_reg:inst4|temp[7]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; shift_reg:inst4|temp[7]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; shift_reg:inst4|temp[7]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; shift_reg:inst4|temp[7]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; uart_receiver:inst7|state.state_bit_1        ; shift_reg:inst4|temp[7]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; shift_reg:inst4|temp[6]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; shift_reg:inst4|temp[6]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; shift_reg:inst4|temp[6]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; shift_reg:inst4|temp[6]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; uart_receiver:inst7|state.state_bit_1        ; shift_reg:inst4|temp[6]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; shift_reg:inst4|temp[5]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; shift_reg:inst4|temp[5]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; shift_reg:inst4|temp[5]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; shift_reg:inst4|temp[5]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; uart_receiver:inst7|state.state_bit_1        ; shift_reg:inst4|temp[5]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; shift_reg:inst4|temp[4]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; shift_reg:inst4|temp[4]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; shift_reg:inst4|temp[4]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; shift_reg:inst4|temp[4]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; uart_receiver:inst7|state.state_bit_1        ; shift_reg:inst4|temp[4]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; shift_reg:inst4|temp[3]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; shift_reg:inst4|temp[3]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; shift_reg:inst4|temp[3]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; shift_reg:inst4|temp[3]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; uart_receiver:inst7|state.state_bit_1        ; shift_reg:inst4|temp[3]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; shift_reg:inst4|temp[2]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; shift_reg:inst4|temp[2]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; shift_reg:inst4|temp[2]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; shift_reg:inst4|temp[2]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; uart_receiver:inst7|state.state_bit_1        ; shift_reg:inst4|temp[2]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; shift_reg:inst4|temp[1]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; shift_reg:inst4|temp[1]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ; shift_reg:inst4|temp[1]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; shift_reg:inst4|temp[1]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 3.900  ; uart_receiver:inst7|state.state_bit_1        ; shift_reg:inst4|temp[1]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 5.200      ;
+; 5.800  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ; uart_receiver:inst7|state.state_bit_0        ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ; uart_receiver:inst7|state.state_bit_0        ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ; uart_receiver:inst7|state.state_bit_0        ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ; uart_receiver:inst7|state.state_bit_0        ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; uart_receiver:inst7|state.state_bit_1        ; uart_receiver:inst7|state.state_bit_1        ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; shift_reg:inst4|temp[7]                      ; shift_reg:inst4|temp[6]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; shift_reg:inst4|temp[6]                      ; shift_reg:inst4|temp[5]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; shift_reg:inst4|temp[5]                      ; shift_reg:inst4|temp[4]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; shift_reg:inst4|temp[4]                      ; shift_reg:inst4|temp[3]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; shift_reg:inst4|temp[3]                      ; shift_reg:inst4|temp[2]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; shift_reg:inst4|temp[2]                      ; shift_reg:inst4|temp[1]                      ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.900  ; uart_receiver:inst7|state.state_bit_1        ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ; clk                                   ; clk         ; 0.000        ; 0.000      ; 7.200      ;
++--------+----------------------------------------------+----------------------------------------------+---------------------------------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'uart_receiver:inst7|state.state_bit_0'                                                                                                                    ;
++-------+-------------------------+--------------------------------+--------------+---------------------------------------+--------------+------------+------------+
+; Slack ; From Node               ; To Node                        ; Launch Clock ; Latch Clock                           ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------+--------------------------------+--------------+---------------------------------------+--------------+------------+------------+
+; 0.600 ; shift_reg:inst4|temp[5] ; seven_seg:inst8|current_ssd[1] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[6] ; seven_seg:inst8|current_ssd[1] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[4] ; seven_seg:inst8|current_ssd[1] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[7] ; seven_seg:inst8|current_ssd[1] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[4] ; seven_seg:inst8|current_ssd[2] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[6] ; seven_seg:inst8|current_ssd[2] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[5] ; seven_seg:inst8|current_ssd[2] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[7] ; seven_seg:inst8|current_ssd[2] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[4] ; seven_seg:inst8|current_ssd[4] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[6] ; seven_seg:inst8|current_ssd[4] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[5] ; seven_seg:inst8|current_ssd[4] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[7] ; seven_seg:inst8|current_ssd[4] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[5] ; seven_seg:inst8|current_ssd[0] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[4] ; seven_seg:inst8|current_ssd[0] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[6] ; seven_seg:inst8|current_ssd[0] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[7] ; seven_seg:inst8|current_ssd[0] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[6] ; seven_seg:inst8|current_ssd[5] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[5] ; seven_seg:inst8|current_ssd[5] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[7] ; seven_seg:inst8|current_ssd[5] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[4] ; seven_seg:inst8|current_ssd[5] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[6] ; seven_seg:inst8|current_ssd[3] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[7] ; seven_seg:inst8|current_ssd[3] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[5] ; seven_seg:inst8|current_ssd[3] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[4] ; seven_seg:inst8|current_ssd[3] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[6] ; seven_seg:inst8|current_ssd[6] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[4] ; seven_seg:inst8|current_ssd[6] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[5] ; seven_seg:inst8|current_ssd[6] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[7] ; seven_seg:inst8|current_ssd[6] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[3] ; seven_seg:inst8|current_dp     ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[2] ; seven_seg:inst8|current_sel[0] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[1] ; seven_seg:inst8|current_sel[0] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[2] ; seven_seg:inst8|current_sel[1] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[1] ; seven_seg:inst8|current_sel[1] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[2] ; seven_seg:inst8|current_sel[2] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[1] ; seven_seg:inst8|current_sel[2] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[2] ; seven_seg:inst8|current_sel[3] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
+; 0.600 ; shift_reg:inst4|temp[1] ; seven_seg:inst8|current_sel[3] ; clk          ; uart_receiver:inst7|state.state_bit_0 ; 0.000        ; 5.200      ; 7.100      ;
++-------+-------------------------+--------------------------------+--------------+---------------------------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clk'                                                                                                    ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                       ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------------+
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; counter:inst2|lpm_counter:temp_rtl_0|dffs[0] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; counter:inst2|lpm_counter:temp_rtl_0|dffs[1] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; counter:inst2|lpm_counter:temp_rtl_0|dffs[2] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; counter:inst2|lpm_counter:temp_rtl_0|dffs[3] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; counter:inst3|lpm_counter:temp_rtl_0|dffs[0] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; counter:inst3|lpm_counter:temp_rtl_0|dffs[1] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; counter:inst3|lpm_counter:temp_rtl_0|dffs[2] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; counter:inst3|lpm_counter:temp_rtl_0|dffs[3] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; shift_reg:inst4|temp[1]                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; shift_reg:inst4|temp[1]                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; shift_reg:inst4|temp[2]                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; shift_reg:inst4|temp[2]                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; shift_reg:inst4|temp[3]                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; shift_reg:inst4|temp[3]                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; shift_reg:inst4|temp[4]                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; shift_reg:inst4|temp[4]                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; shift_reg:inst4|temp[5]                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; shift_reg:inst4|temp[5]                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; shift_reg:inst4|temp[6]                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; shift_reg:inst4|temp[6]                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; shift_reg:inst4|temp[7]                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; shift_reg:inst4|temp[7]                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; uart_receiver:inst7|state.state_bit_0        ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_receiver:inst7|state.state_bit_0        ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; clk   ; Rise       ; uart_receiver:inst7|state.state_bit_1        ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_receiver:inst7|state.state_bit_1        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk|dataout                                  ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk|dataout                                  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst2|temp_rtl_0|dffs[0]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst2|temp_rtl_0|dffs[0]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst2|temp_rtl_0|dffs[1]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst2|temp_rtl_0|dffs[1]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst2|temp_rtl_0|dffs[2]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst2|temp_rtl_0|dffs[2]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst2|temp_rtl_0|dffs[3]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst2|temp_rtl_0|dffs[3]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst3|temp_rtl_0|dffs[0]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst3|temp_rtl_0|dffs[0]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst3|temp_rtl_0|dffs[1]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst3|temp_rtl_0|dffs[1]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst3|temp_rtl_0|dffs[2]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst3|temp_rtl_0|dffs[2]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst3|temp_rtl_0|dffs[3]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst3|temp_rtl_0|dffs[3]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst4|temp[1]|clk                            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst4|temp[1]|clk                            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst4|temp[2]|clk                            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst4|temp[2]|clk                            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst4|temp[3]|clk                            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst4|temp[3]|clk                            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst4|temp[4]|clk                            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst4|temp[4]|clk                            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst4|temp[5]|clk                            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst4|temp[5]|clk                            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst4|temp[6]|clk                            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst4|temp[6]|clk                            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst4|temp[7]|clk                            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst4|temp[7]|clk                            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst7|state.state_bit_0|clk                  ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst7|state.state_bit_0|clk                  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; inst7|state.state_bit_1|clk                  ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; inst7|state.state_bit_1|clk                  ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'uart_receiver:inst7|state.state_bit_0'                                                                                     ;
++--------+--------------+----------------+------------------+---------------------------------------+------------+---------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock                                 ; Clock Edge ; Target                          ;
++--------+--------------+----------------+------------------+---------------------------------------+------------+---------------------------------+
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_dp      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_dp      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_sel[0]  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_sel[0]  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_sel[1]  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_sel[1]  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_sel[2]  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_sel[2]  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_sel[3]  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_sel[3]  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_ssd[0]  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_ssd[0]  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_ssd[1]  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_ssd[1]  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_ssd[2]  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_ssd[2]  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_ssd[3]  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_ssd[3]  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_ssd[4]  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_ssd[4]  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_ssd[5]  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_ssd[5]  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_ssd[6]  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; seven_seg:inst8|current_ssd[6]  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; inst7|state.data~13|datain[0]   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; inst7|state.data~13|datain[0]   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst7|state.data~13|dataout     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst7|state.data~13|dataout     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; inst7|state.data~25|datain[0]   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; inst7|state.data~25|datain[0]   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst7|state.data~25|dataout     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst7|state.data~25|dataout     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; inst7|state.state_bit_0|dataout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Rise       ; inst7|state.state_bit_0|dataout ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_dp|[1]            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_dp|[1]            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_sel[0]|[2]        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_sel[0]|[2]        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_sel[1]|[2]        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_sel[1]|[2]        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_sel[2]|[2]        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_sel[2]|[2]        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_sel[3]|[2]        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_sel[3]|[2]        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_ssd[0]|[4]        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_ssd[0]|[4]        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_ssd[1]|[4]        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_ssd[1]|[4]        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_ssd[2]|[4]        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_ssd[2]|[4]        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_ssd[3]|[4]        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_ssd[3]|[4]        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_ssd[4]|[4]        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_ssd[4]|[4]        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_ssd[5]|[4]        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_ssd[5]|[4]        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_ssd[6]|[4]        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; uart_receiver:inst7|state.state_bit_0 ; Fall       ; inst8|current_ssd[6]|[4]        ;
++--------+--------------+----------------+------------------+---------------------------------------+------------+---------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; rx        ; clk        ; 6.300 ; 6.300 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; rx        ; clk        ; -2.100 ; -2.100 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                                    ;
++-----------+---------------------------------------+--------+--------+------------+---------------------------------------+
+; Data Port ; Clock Port                            ; Rise   ; Fall   ; Clock Edge ; Clock Reference                       ;
++-----------+---------------------------------------+--------+--------+------------+---------------------------------------+
+; dp        ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+; sel[*]    ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  sel[0]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  sel[1]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  sel[2]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  sel[3]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+; ssd[*]    ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  ssd[0]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  ssd[1]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  ssd[2]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  ssd[3]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  ssd[4]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  ssd[5]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  ssd[6]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
++-----------+---------------------------------------+--------+--------+------------+---------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                                            ;
++-----------+---------------------------------------+--------+--------+------------+---------------------------------------+
+; Data Port ; Clock Port                            ; Rise   ; Fall   ; Clock Edge ; Clock Reference                       ;
++-----------+---------------------------------------+--------+--------+------------+---------------------------------------+
+; dp        ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+; sel[*]    ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  sel[0]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  sel[1]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  sel[2]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  sel[3]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+; ssd[*]    ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  ssd[0]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  ssd[1]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  ssd[2]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  ssd[3]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  ssd[4]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  ssd[5]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
+;  ssd[6]   ; uart_receiver:inst7|state.state_bit_0 ; 12.200 ; 12.200 ; Rise       ; uart_receiver:inst7|state.state_bit_0 ;
++-----------+---------------------------------------+--------+--------+------------+---------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                                           ;
++---------------------------------------+---------------------------------------+----------+----------+----------+----------+
+; From Clock                            ; To Clock                              ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++---------------------------------------+---------------------------------------+----------+----------+----------+----------+
+; clk                                   ; clk                                   ; 236      ; 0        ; 0        ; 0        ;
+; uart_receiver:inst7|state.state_bit_0 ; clk                                   ; 46       ; 46       ; 0        ; 0        ;
+; clk                                   ; uart_receiver:inst7|state.state_bit_0 ; 76       ; 0        ; 0        ; 0        ;
++---------------------------------------+---------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                                            ;
++---------------------------------------+---------------------------------------+----------+----------+----------+----------+
+; From Clock                            ; To Clock                              ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++---------------------------------------+---------------------------------------+----------+----------+----------+----------+
+; clk                                   ; clk                                   ; 236      ; 0        ; 0        ; 0        ;
+; uart_receiver:inst7|state.state_bit_0 ; clk                                   ; 46       ; 46       ; 0        ; 0        ;
+; clk                                   ; uart_receiver:inst7|state.state_bit_0 ; 76       ; 0        ; 0        ; 0        ;
++---------------------------------------+---------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 19    ; 19   ;
+; Unconstrained Output Ports      ; 12    ; 12   ;
+; Unconstrained Output Port Paths ; 12    ; 12   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+    Info: Processing started: Mon Aug 22 23:42:44 2016
+Info: Command: quartus_sta cpdl_uart -c cpdl_uart
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (306004): Started post-fitting delay annotation
+Info (306005): Delay annotation completed successfully
+Warning (335095): TimeQuest Timing Analyzer does not support the analysis of latches as synchronous elements for the currently selected device family.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'cpdl_uart.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+    Info (332105): create_clock -period 1.000 -name uart_receiver:inst7|state.state_bit_0 uart_receiver:inst7|state.state_bit_0
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -10.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):   -10.000      -153.900 clk 
+    Info (332119):    -3.800       -45.600 uart_receiver:inst7|state.state_bit_0 
+Info (332146): Worst-case hold slack is -1.300
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.300        -9.100 clk 
+    Info (332119):     0.600         0.000 uart_receiver:inst7|state.state_bit_0 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.500
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -3.500      -119.000 clk 
+    Info (332119):    -3.500       -84.000 uart_receiver:inst7|state.state_bit_0 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 396 megabytes
+    Info: Processing ended: Mon Aug 22 23:42:44 2016
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:01
+
+

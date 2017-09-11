@@ -1,0 +1,142 @@
+library ieee ;
+use ieee.std_logic_1164.all ;
+
+entity hello is
+port(clk,reset,rx,scom_7,ncom_7,scom_15 : in std_logic;
+		ncount,scount,clear_s,shift,clear_n,disp : out std_logic
+);
+end entity;
+
+architecture behavior of hello is
+type my_state is (idle,start,data,stop);
+signal state: my_state :=idle;
+
+begin 
+
+process(clk,reset)
+begin
+	if(reset = '1') then 
+		state <= idle;
+		
+	elsif(clk'event and clk ='1' ) then
+		case state is
+			when idle =>	
+				if(rx = '0') then
+					state <= start ;
+				else
+					state <= idle;
+				end if;
+			
+			when start =>
+				if(scom_7 = '1') then
+					state <= data ;
+				else
+					state <= start ;
+				
+				end if;
+				
+			when data =>
+				if(scom_15 = '1' and ncom_7 ='1') then
+					state <= stop;
+					
+				else
+					state <= data;
+				
+				end if;
+				
+			when stop =>
+				if(scom_15 = '0') then
+					state <= stop;
+				else
+					state <= idle;
+				end if;
+				
+		end case ;
+		
+	end if ;
+
+end process;
+
+
+process(state,rx,ncom_7,scom_15,scom_7)
+begin
+	case state is
+		when idle =>
+			if(rx = '0') then
+				clear_s <= '1';
+				ncount <= '0';
+				scount <= '0';
+				clear_n <= '1';
+				shift <= '0';
+				disp <= '1';
+			else
+				clear_s <='0';
+				ncount <= '0';
+				scount <= '0';
+				clear_n <= '0';
+				shift <= '0';
+				disp <= '1';			
+			end if;
+			
+		when start =>
+			if(scom_7 ='1') then
+				clear_s <= '1';
+				ncount <= '0';
+				scount <= '0';
+				clear_n <= '1';
+				shift <= '0';
+				disp <= '1';			
+			else
+				clear_s <= '0';
+				ncount <='0';
+				scount <='1';
+				clear_n <= '0';
+				shift <= '0';
+				disp <= '1';
+			end if;
+			
+		when data =>
+			if(scom_15 = '1' and ncom_7='1') then
+				clear_s <= '1';
+				ncount <= '0';
+				scount <= '0';
+				clear_n <= '0';
+				shift <= '1';
+				disp <= '0';
+			elsif(scom_15 = '1' and ncom_7 = '0') then
+				clear_s <= '1';
+				ncount <= '1';
+				shift <= '1';
+				clear_n <= '0';
+				scount <= '0';
+				disp <= '0';
+			elsif(scom_15 = '0') then
+				scount <= '1';
+				ncount <='0';
+				clear_s <= '0';
+				clear_n <= '0';
+				shift <= '0';
+				disp <= '0';
+			end if;
+			
+		when stop =>
+			if(scom_15 ='0') then
+				scount <= '1';
+				ncount <= '0';
+				shift <='0';
+				clear_s <= '0';
+				clear_n <='0';
+				disp <= '1';
+			else
+				scount <= '0';
+				ncount <= '0';
+				shift <= '0';
+				clear_s <= '0';
+				clear_n <='0';
+				disp <= '1';
+			end if;
+		end case;
+end process;
+
+end architecture;
+				

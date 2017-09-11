@@ -1,0 +1,161 @@
+m255
+K3
+13
+cModel Technology
+Z0 dE:\Uni\209\lab2\simulation\qsim
+vBlock2
+Z1 IlZ[O0Q4bm`7`:`:=_]YUU2
+Z2 V>?oObIbe6@l15;iU;3]?e2
+Z3 dC:\Users\tofutaco\Desktop\209\lab2\simulation\qsim
+Z4 w1471516579
+Z5 8hello.vo
+Z6 Fhello.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s90 -work|work|hello.vo|
+Z9 o-work work -O0
+Z10 n@block2
+!i10b 1
+Z11 !s100 PUJzaPce<E33l?glWFP=:0
+!s85 0
+Z12 !s108 1471516580.276000
+Z13 !s107 hello.vo|
+!s101 -O0
+vBlock2_vlg_check_tst
+!i10b 1
+!s100 8o4Slg5HBKYJLko@l2Bj_1
+Ij2ZP7K9I]ef98W9e[f]b63
+V5fzjDKoC6^EZcGT>?=z0D1
+R3
+Z14 w1471516578
+Z15 8hello.vt
+Z16 Fhello.vt
+L0 61
+R7
+r1
+!s85 0
+31
+Z17 !s108 1471516580.393000
+Z18 !s107 hello.vt|
+Z19 !s90 -work|work|hello.vt|
+!s101 -O0
+R9
+n@block2_vlg_check_tst
+vBlock2_vlg_sample_tst
+!i10b 1
+!s100 zD9P_RlC^K`]_H[0aXkRm3
+I4UefokfoNKLRjbEgL;_^J0
+V0EX?HP^XbPTbm<f>HDQaZ2
+R3
+R14
+R15
+R16
+L0 29
+R7
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R9
+n@block2_vlg_sample_tst
+vBlock2_vlg_vec_tst
+!i10b 1
+!s100 B8ONNRC@ADU`5UgDK_EIM1
+IR_LTj0CUBlRURO7Rn;QI42
+VniRYiKO^Dm>FO`M@4a0Mg1
+R3
+R14
+R15
+R16
+L0 397
+R7
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R9
+n@block2_vlg_vec_tst
+vtesting_counter
+Z20 IE?jInIA^8f`PN:IXaF6U90
+Z21 VQA74<Ac^`M[HLSi062cgb3
+Z22 dE:\Uni\209\lab2\simulation\qsim
+Z23 w1470292118
+R5
+R6
+L0 31
+R7
+r1
+31
+R9
+Z24 !s100 I4``AGNKeYGeP`BkVhBIR1
+Z25 !s108 1470292119.420000
+R13
+R8
+!i10b 1
+!s85 0
+!s101 -O0
+vtesting_counter_vlg_check_tst
+Z26 ID^2B:8E2[c^`jB;65g^:R0
+Z27 VTz]7To@`^IzJiWR96KlfT2
+R22
+Z28 w1470292116
+R15
+R16
+L0 61
+R7
+r1
+31
+Z29 !s108 1470292120.140000
+Z30 !s107 hello.vt|
+R19
+R9
+Z31 !s100 @ZiPZ`23`ie_iRZ`eELKL2
+!i10b 1
+!s85 0
+!s101 -O0
+vtesting_counter_vlg_sample_tst
+Z32 IoBXCd^P@0P7jm_P0F4<U?0
+Z33 VILP_OG`WTMW6oYPhhW_=K2
+R22
+R28
+R15
+R16
+L0 29
+R7
+r1
+31
+R29
+R30
+R19
+R9
+Z34 !s100 9AgUd<jMGlbMHQ5d83g7:2
+!i10b 1
+!s85 0
+!s101 -O0
+vtesting_counter_vlg_vec_tst
+Z35 I9;F[nW`<E_Yhz<0jfEjz72
+Z36 V`;:1]7C5F11lk;zOLCje33
+R22
+R28
+R15
+R16
+Z37 L0 209
+R7
+r1
+31
+R29
+R30
+R19
+R9
+Z38 !s100 Sf07hz`H[aUdFFJ::<hL:1
+!i10b 1
+!s85 0
+!s101 -O0

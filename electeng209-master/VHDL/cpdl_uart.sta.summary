@@ -1,0 +1,29 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'clk'
+Slack : -10.000
+TNS   : -153.900
+
+Type  : Setup 'uart_receiver:inst7|state.state_bit_0'
+Slack : -3.800
+TNS   : -45.600
+
+Type  : Hold 'clk'
+Slack : -1.300
+TNS   : -9.100
+
+Type  : Hold 'uart_receiver:inst7|state.state_bit_0'
+Slack : 0.600
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'clk'
+Slack : -3.500
+TNS   : -119.000
+
+Type  : Minimum Pulse Width 'uart_receiver:inst7|state.state_bit_0'
+Slack : -3.500
+TNS   : -84.000
+
+------------------------------------------------------------

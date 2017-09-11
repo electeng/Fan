@@ -1,0 +1,55 @@
+* C:\Users\tofutaco\Documents\ELECTENG209\Project Code\electeng209\LTSpice\pcb_sim.asc
+V1 Vac 0 SINE(0 19.7979797979797979 500 0 0 0)
+L1 Vac N003 3.7m
+R1 N003 Isens 20
+R2 Isens 0 0.2
+R3 Vac Vsens 100k
+R4 Vsens 0 8.2k
+XU1 N013 N005 3v3 0 N006 level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
+R5 N006 N005 180k
+R6 N005 0 20k
+R7 N013 Isens 20k
+R8 1v65 N013 180k
+XU2 N002 3v3 MP_01 0 N002 LT3009-3.3
+C1 N002 0 100µ
+C2 3v3 0 100µ
+R9 N002 N001 10
+D1 Vac N001 D
+R10 3v3 N004 100k
+R11 N004 0 100k
+XU3 N014 N007 3v3 0 N008 level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
+R12 N008 N007 100k
+R13 N007 0 100k
+R14 N014 Vsens 92.4k
+R15 1v65 N014 100k
+D2 Vsens P001 D
+D3 0 P001 D
+D4 Isens P002 D
+D5 0 P002 D
+XU4 N004 1v65 3v3 0 1v65 level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
+XU5 1v65 N010 3v3 0 Iadc level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
+C3 Iadc N010 1.8n
+R16 N009 N010 10k
+R17 Iadc N009 3.3k
+C4 N009 1v65 15n
+R18 N006 N009 3.3k
+XU6 1v65 N012 3v3 0 Vadc level.2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
+C5 Vadc N012 1.8n
+R19 N011 N012 10k
+R20 Vadc N011 3.3k
+C6 N011 1v65 15n
+R21 N008 N011 3.3k
+.model D D
+.lib C:\PROGRA~2\LTC\LTSPIC~1\lib\cmp\standard.dio
+* Load
+.tran 0 100m 0 50u uic
+* Power Circuit with AC Source & Load
+* Current Measurement\nAmplification (x9.45) & Level Shift (1.65V)
+* AC (22V-16V) to Regulated 3.3 V DC
+* Voltage Measurement - Level Shift (1.65V)
+* Filtering (2nd order)
+* Filtering (2nd order)
+.lib LT3009.lib
+.lib UniversalOpamps2.sub
+.backanno
+.end

@@ -1,0 +1,94 @@
+library ieee;
+use ieee.std_logic_1164.all ;
+
+entity display is
+port(
+	packet : in std_logic_vector(7 downto 0);
+	disp : in std_logic;
+	enable : out std_logic_vector(3 downto 0) ;
+	digit : out std_logic;
+	ssd : out std_logic_vector(6 downto 0)
+);
+
+end entity;
+
+architecture behaviour of display is
+
+signal current_ssd: std_logic_vector(6 downto 0) := "0000000";
+signal current_digit: std_logic := '0';
+signal current_enable: std_logic_vector(3 downto 0) := "0000";
+
+begin
+
+	process(disp)
+	
+	begin
+	
+	if (disp = '1' AND disp'event) then
+	
+	case packet(7 downto 5) is
+	when "000" =>
+		current_enable <= "0001";
+	when "001" =>
+		current_enable <= "0010";
+	when "010" =>
+		current_enable <= "0100";
+	when "011" =>
+		current_enable <= "1000";
+	when others =>
+		current_enable <= "0000";
+	end case;
+	
+--	enable <= "0001" when packet(6 downto 5) = "00" else
+--				 "0010" when packet(6 downto 5) = "01" else
+--				 "0100" when packet(6 downto 5) = "10" else
+--				 "1000" when packet(6 downto 5) = "11" ;
+
+	case packet(3 downto 0) is
+	when "0000" =>
+		current_ssd <= "1111110"; --"0000001";
+	when "0001" =>
+		current_ssd <= "0110000"; --"1001111";
+	when "0010" =>
+		current_ssd <= "1101101"; --"0010010";
+	when "0011" =>
+		current_ssd <= "1111001"; --"0000110";
+	when "0100" =>
+		current_ssd <= "0110011"; --"1001100";
+	when "0101" =>
+		current_ssd <= "1011011"; --"0100100";
+	when "0110" =>
+		current_ssd <= "1011111"; --"0100000";
+	when "0111" =>
+		current_ssd <= "1110000"; --"0001111";
+	when "1000" =>
+		current_ssd <= "1111111"; --"0000000";
+	when "1001" =>
+		current_ssd <= "1110011"; --"0001100";
+	when others =>
+		current_ssd <= "0000000";
+	end case;		
+				 
+--	ssd <= "0000001" when packet(3 downto 0) = "0000" else
+--			 "1001111" when packet(3 downto 0) = "0001" else
+--			 "0010010" when packet(3 downto 0) = "0010" else
+--			 "0000110" when packet(3 downto 0) = "0011" else
+--			 "1001100" when packet(3 downto 0) = "0100" else
+--			 "0100100" when packet(3 downto 0) = "0101" else
+--			 "0100000" when packet(3 downto 0) = "0110" else
+--			 "0001111" when packet(3 downto 0) = "0111" else
+--			 "0000000" when packet(3 downto 0) = "1000" else
+--			 "0001100" when packet(3 downto 0) = "1001" ;
+	
+	case packet(4) is
+	when '1' =>
+		current_digit <= '1';
+	when others =>
+		current_digit <= '0';
+	end case;
+	end if;
+end process;
+		digit <= current_digit;
+		ssd <= current_ssd;
+		enable <= current_enable;
+end architecture;
